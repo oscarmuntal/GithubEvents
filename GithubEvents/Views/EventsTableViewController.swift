@@ -11,6 +11,7 @@ import RxSwift
 
 class EventsTableViewController: UITableViewController {
     private let disposeBag = DisposeBag()
+    private var eventListViewModel: EventListViewModel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,12 +20,26 @@ class EventsTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        guard let eventListVM = eventListViewModel else { return 0 }
+        return eventListVM.events.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "EventTableViewCell", for: indexPath) as? EventTableViewCell else { fatalError("EventTableViewCell not found") }
         
+        guard let eventVM = eventListViewModel?.eventAt(indexPath.row) else { return cell }
+        
+        eventVM.actorName.asDriver(onErrorJustReturn: "")
+            .drive(cell.loginLabel.rx.text)
+            .disposed(by: disposeBag)
+        
+        eventVM.eventType.asDriver(onErrorJustReturn: "")
+            .drive(cell.typeLabel.rx.text)
+            .disposed(by: disposeBag)
+        
+        eventVM.repoName.asDriver(onErrorJustReturn: "")
+            .drive(cell.repoNameLabel.rx.text)
+            .disposed(by: disposeBag)
         
         return cell
     }
@@ -37,14 +52,10 @@ private extension EventsTableViewController {
         
         URLRequest.requestDecodable(resource: resource)
             .subscribe(onNext: { events in
-                
-                guard let first = events.first else { return }
-                print(first.id)
-                print(first.type)
-                print(first.actor.name)
-                print(first.actor.avatarUrl)
-                print(first.repo.name)
-                
+                self.eventListViewModel = EventListViewModel(events)
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
             }).disposed(by: disposeBag)
     }
 }
