@@ -7,12 +7,15 @@
 
 import Foundation
 import UIKit
+import RxSwift
 
 class EventsTableViewController: UITableViewController {
+    private let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.prefersLargeTitles = true
+        populateNews()
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -24,5 +27,24 @@ class EventsTableViewController: UITableViewController {
         
         
         return cell
+    }
+}
+
+private extension EventsTableViewController {
+    func populateNews() {
+        guard let url = URL(string: "https://api.github.com/events") else { fatalError("URL doesn't work") }
+        let resource = Resource<[Event]>(url: url)
+        
+        URLRequest.requestDecodable(resource: resource)
+            .subscribe(onNext: { events in
+                
+                guard let first = events.first else { return }
+                print(first.id)
+                print(first.type)
+                print(first.actor.name)
+                print(first.actor.avatarUrl)
+                print(first.repo.name)
+                
+            }).disposed(by: disposeBag)
     }
 }
