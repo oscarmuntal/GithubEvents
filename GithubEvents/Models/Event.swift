@@ -8,7 +8,7 @@
 import Foundation
 
 struct Event: Decodable {
-    let id: Int
+    let id: String
     let type: String
     let actor: Actor
     let repo: Repo
