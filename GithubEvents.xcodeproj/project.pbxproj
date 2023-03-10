@@ -16,6 +16,7 @@
 		1FDD520F29BBBDA30014502D /* EventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDD520E29BBBDA30014502D /* EventTableViewCell.swift */; };
 		1FDD521229BBCBCE0014502D /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDD521129BBCBCE0014502D /* Event.swift */; };
 		1FDD521529BBD2AC0014502D /* URLRequest+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDD521429BBD2AC0014502D /* URLRequest+Extensions.swift */; };
+		1FDD521829BBD6BE0014502D /* EventViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDD521729BBD6BE0014502D /* EventViewModel.swift */; };
 		3D926A2F977696C304E6D7E0 /* Pods_GithubEvents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E566FD127300FA9F47B644FA /* Pods_GithubEvents.framework */; };
 /* End PBXBuildFile section */
 
@@ -31,6 +32,7 @@
 		1FDD520E29BBBDA30014502D /* EventTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTableViewCell.swift; sourceTree = "<group>"; };
 		1FDD521129BBCBCE0014502D /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		1FDD521429BBD2AC0014502D /* URLRequest+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLRequest+Extensions.swift"; sourceTree = "<group>"; };
+		1FDD521729BBD6BE0014502D /* EventViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventViewModel.swift; sourceTree = "<group>"; };
 		8E22E65481D1C11AA01BA3C6 /* Pods-GithubEvents.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GithubEvents.debug.xcconfig"; path = "Target Support Files/Pods-GithubEvents/Pods-GithubEvents.debug.xcconfig"; sourceTree = "<group>"; };
 		E566FD127300FA9F47B644FA /* Pods_GithubEvents.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GithubEvents.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EAB16AB5D02FF07283303732 /* Pods-GithubEvents.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GithubEvents.release.xcconfig"; path = "Target Support Files/Pods-GithubEvents/Pods-GithubEvents.release.xcconfig"; sourceTree = "<group>"; };
@@ -82,6 +84,7 @@
 				1FDD51F929BBB4FD0014502D /* SceneDelegate.swift */,
 				1FDD521029BBCB980014502D /* Models */,
 				1FDD520B29BBBCB80014502D /* Views */,
+				1FDD521629BBD69A0014502D /* View Models */,
 				1FDD521329BBD2910014502D /* Extensions */,
 				1FDD520029BBB5030014502D /* Assets.xcassets */,
 				1FDD520229BBB5030014502D /* LaunchScreen.storyboard */,
@@ -114,6 +117,14 @@
 				1FDD521429BBD2AC0014502D /* URLRequest+Extensions.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		1FDD521629BBD69A0014502D /* View Models */ = {
+			isa = PBXGroup;
+			children = (
+				1FDD521729BBD6BE0014502D /* EventViewModel.swift */,
+			);
+			path = "View Models";
 			sourceTree = "<group>";
 		};
 		BB71EA9BC85377F17E8C2303 /* Frameworks */ = {
@@ -244,6 +255,7 @@
 				1FDD51FA29BBB4FD0014502D /* SceneDelegate.swift in Sources */,
 				1FDD521529BBD2AC0014502D /* URLRequest+Extensions.swift in Sources */,
 				1FDD520D29BBBCFA0014502D /* EventsTableViewController.swift in Sources */,
+				1FDD521829BBD6BE0014502D /* EventViewModel.swift in Sources */,
 				1FDD521229BBCBCE0014502D /* Event.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
