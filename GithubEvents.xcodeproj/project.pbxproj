@@ -14,6 +14,7 @@
 		1FDD520429BBB5030014502D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1FDD520229BBB5030014502D /* LaunchScreen.storyboard */; };
 		1FDD520D29BBBCFA0014502D /* EventsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDD520C29BBBCFA0014502D /* EventsTableViewController.swift */; };
 		1FDD520F29BBBDA30014502D /* EventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDD520E29BBBDA30014502D /* EventTableViewCell.swift */; };
+		1FDD521229BBCBCE0014502D /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDD521129BBCBCE0014502D /* Event.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		1FDD520529BBB5030014502D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1FDD520C29BBBCFA0014502D /* EventsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsTableViewController.swift; sourceTree = "<group>"; };
 		1FDD520E29BBBDA30014502D /* EventTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTableViewCell.swift; sourceTree = "<group>"; };
+		1FDD521129BBCBCE0014502D /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,7 @@
 		1FDD51F629BBB4FD0014502D /* GithubEvents */ = {
 			isa = PBXGroup;
 			children = (
+				1FDD521029BBCB980014502D /* Models */,
 				1FDD520B29BBBCB80014502D /* Views */,
 				1FDD51F729BBB4FD0014502D /* AppDelegate.swift */,
 				1FDD51F929BBB4FD0014502D /* SceneDelegate.swift */,
@@ -76,6 +79,14 @@
 				1FDD520E29BBBDA30014502D /* EventTableViewCell.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		1FDD521029BBCB980014502D /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				1FDD521129BBCBCE0014502D /* Event.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -153,6 +164,7 @@
 				1FDD51F829BBB4FD0014502D /* AppDelegate.swift in Sources */,
 				1FDD51FA29BBB4FD0014502D /* SceneDelegate.swift in Sources */,
 				1FDD520D29BBBCFA0014502D /* EventsTableViewController.swift in Sources */,
+				1FDD521229BBCBCE0014502D /* Event.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
