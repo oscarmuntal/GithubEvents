@@ -5,7 +5,7 @@
 //  Created by Òscar Muntal on 10/3/23.
 //
 
-import Foundation
+import UIKit
 import RxSwift
 import RxCocoa
 
@@ -30,19 +30,5 @@ struct EventViewModel {
     
     init(_ event: Event) {
         self.event = event
-    }
-}
-
-extension EventViewModel {
-    var actorName: Observable<String> {
-        Observable<String>.just(event.actor.name)
-    }
-    
-    var eventType: Observable<String> {
-        Observable<String>.just(event.type)
-    }
-    
-    var repoName: Observable<String> {
-        Observable<String>.just(event.repo.name)
     }
 }

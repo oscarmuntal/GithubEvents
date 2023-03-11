@@ -8,7 +8,16 @@
 import UIKit
 
 class EventTableViewCell: UITableViewCell {
+    @IBOutlet weak var avatarImage: UIImageView!
     @IBOutlet weak var loginLabel: UILabel!
     @IBOutlet weak var typeLabel: UILabel!
     @IBOutlet weak var repoNameLabel: UILabel!
+    
+    func configure(with viewModel: EventViewModel) {
+        avatarImage.setActorImage(with: URL(string: viewModel.event.actor.avatarUrl))
+        avatarImage.rounded()
+        loginLabel.text = viewModel.event.actor.name
+        typeLabel.text = viewModel.event.type
+        repoNameLabel.text = viewModel.event.repo.name
+    }
 }

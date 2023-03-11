@@ -29,18 +29,7 @@ class EventsTableViewController: UITableViewController {
         
         guard let eventVM = eventListViewModel?.eventAt(indexPath.row) else { return cell }
         
-        eventVM.actorName.asDriver(onErrorJustReturn: "")
-            .drive(cell.loginLabel.rx.text)
-            .disposed(by: disposeBag)
-        
-        eventVM.eventType.asDriver(onErrorJustReturn: "")
-            .drive(cell.typeLabel.rx.text)
-            .disposed(by: disposeBag)
-        
-        eventVM.repoName.asDriver(onErrorJustReturn: "")
-            .drive(cell.repoNameLabel.rx.text)
-            .disposed(by: disposeBag)
-        
+        cell.configure(with: eventVM)
         return cell
     }
 }
@@ -51,10 +40,10 @@ private extension EventsTableViewController {
         let resource = Resource<[Event]>(url: url)
         
         URLRequest.requestDecodable(resource: resource)
-            .subscribe(onNext: { events in
-                self.eventListViewModel = EventListViewModel(events)
+            .subscribe(onNext: { [weak self] events in
+                self?.eventListViewModel = EventListViewModel(events)
                 DispatchQueue.main.async {
-                    self.tableView.reloadData()
+                    self?.tableView.reloadData()
                 }
             }).disposed(by: disposeBag)
     }
