@@ -39,6 +39,6 @@ struct EventViewModel {
         type = event.type
         repoName = event.repo.name
         repoURL = URL(string: event.repo.url)
-        date = event.date
+        self.date = event.date.simpleFormattedDate()
     }
 }
