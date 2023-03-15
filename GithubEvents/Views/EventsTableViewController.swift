@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 import RxSwift
+import RxCocoa
 
 class EventsTableViewController: UITableViewController {
     private let disposeBag = DisposeBag()
@@ -31,6 +32,24 @@ class EventsTableViewController: UITableViewController {
         
         cell.configure(with: eventVM)
         return cell
+    }
+    
+    var eventSelected: EventViewModel?
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let indexPath = tableView.indexPathForSelectedRow!
+        guard let currentCell = tableView.cellForRow(at: indexPath)! as? EventTableViewCell else { return }
+        
+        eventSelected = currentCell.eventViewModel
+        performSegue(withIdentifier: "toEventDetail", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard segue.identifier == "toEventDetail",
+              let eventDetailVC = segue.destination as? EventDetailViewController,
+              let eventSelected = eventSelected else { fatalError("EventDetailViewController not found") }
+        
+        eventDetailVC.event = eventSelected
     }
 }
 

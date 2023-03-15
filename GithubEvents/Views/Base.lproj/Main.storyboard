@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -95,10 +96,29 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Github Events" id="OzT-Dt-EQU"/>
+                    <connections>
+                        <segue destination="uAs-EJ-ei9" kind="show" identifier="toEventDetail" id="6mk-mq-zzx"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4fQ-p6-SJc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="850.72463768115949" y="128.57142857142856"/>
+        </scene>
+        <!--Event Detail View Controller-->
+        <scene sceneID="XAw-26-8UC">
+            <objects>
+                <viewController restorationIdentifier="EventDetailViewController" id="uAs-EJ-ei9" customClass="EventDetailViewController" customModule="GithubEvents" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="R37-cR-i8z">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="oac-k9-fO1"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="n3o-vA-c8B"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BLp-Oc-92Q" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1670" y="129"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="jJh-ud-FTg">
