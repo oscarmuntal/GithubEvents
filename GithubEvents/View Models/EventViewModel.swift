@@ -26,9 +26,19 @@ extension EventListViewModel {
 }
 
 struct EventViewModel {
-    let event: Event
+    let avatarURL: URL?
+    let actorName: String
+    let type: String
+    let repoName: String
+    let repoURL: URL?
+    let date: String
     
     init(_ event: Event) {
-        self.event = event
+        avatarURL = URL(string: event.actor.avatarUrl)
+        actorName = event.actor.name
+        type = event.type
+        repoName = event.repo.name
+        repoURL = URL(string: event.repo.url)
+        date = event.date
     }
 }

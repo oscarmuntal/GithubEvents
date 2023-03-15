@@ -12,14 +12,16 @@ class EventTableViewCell: UITableViewCell {
     @IBOutlet weak var loginLabel: UILabel!
     @IBOutlet weak var typeLabel: UILabel!
     @IBOutlet weak var repoNameLabel: UILabel!
+    
+    
     public var eventViewModel: EventViewModel!
     
     func configure(with viewModel: EventViewModel) {
         eventViewModel = viewModel
-        avatarImage.setActorImage(with: URL(string: viewModel.event.actor.avatarUrl))
+        avatarImage.setActorImage(with: viewModel.avatarURL)
         avatarImage.rounded()
-        loginLabel.text = viewModel.event.actor.name
-        typeLabel.text = viewModel.event.type
-        repoNameLabel.text = viewModel.event.repo.name
+        loginLabel.text = viewModel.actorName
+        typeLabel.text = viewModel.type
+        repoNameLabel.text = viewModel.repoName
     }
 }

@@ -17,7 +17,7 @@ class EventsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.prefersLargeTitles = true
-        populateNews()
+        populateEvents()
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -54,7 +54,7 @@ class EventsTableViewController: UITableViewController {
 }
 
 private extension EventsTableViewController {
-    func populateNews() {
+    func populateEvents() {
         guard let url = URL(string: "https://api.github.com/events") else { fatalError("URL doesn't work") }
         let resource = Resource<[Event]>(url: url)
         

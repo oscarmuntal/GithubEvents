@@ -12,6 +12,26 @@ struct Event: Decodable {
     let type: String
     let actor: Actor
     let repo: Repo
+    let date: String
+    
+    private enum CodingKeys: String, CodingKey {
+        case id
+        case type
+        case actor
+        case repo
+        case date = "created_at"
+    }
+}
+
+extension Event {
+    init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        self.id = try values.decode(String.self, forKey: .id)
+        self.type = try values.decode(String.self, forKey: .type)
+        self.actor = try values.decode(Actor.self, forKey: .actor)
+        self.repo = try values.decode(Repo.self, forKey: .repo)
+        self.date = try values.decode(String.self, forKey: .date)
+    }
 }
 
 struct Actor: Decodable {
