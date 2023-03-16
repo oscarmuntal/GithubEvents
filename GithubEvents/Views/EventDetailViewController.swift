@@ -17,7 +17,7 @@ class EventDetailViewController: UIViewController {
     @IBOutlet weak var gitUrlLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     
-    var event: EventViewModel!
+    var event: EventViewModelContract!
     private let disposeBag = DisposeBag()
     
     override func viewDidLoad() {

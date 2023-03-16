@@ -14,9 +14,9 @@ class EventTableViewCell: UITableViewCell {
     @IBOutlet weak var repoNameLabel: UILabel!
     
     
-    public var eventViewModel: EventViewModel!
+    public var eventViewModel: EventViewModelContract!
     
-    func configure(with viewModel: EventViewModel) {
+    func configure(with viewModel: EventViewModelContract) {
         eventViewModel = viewModel
         avatarImage.setActorImage(with: viewModel.avatarURL)
         avatarImage.rounded()

@@ -12,7 +12,8 @@ import RxCocoa
 
 class EventsTableViewController: UITableViewController {
     private let disposeBag = DisposeBag()
-    private var eventListViewModel: EventListViewModel?
+    var eventListViewModel: EventListViewModelContract?
+    var eventSelected: EventViewModelContract?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,12 +35,9 @@ class EventsTableViewController: UITableViewController {
         return cell
     }
     
-    var eventSelected: EventViewModel?
-    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let indexPath = tableView.indexPathForSelectedRow!
-        guard let currentCell = tableView.cellForRow(at: indexPath)! as? EventTableViewCell else { return }
-        
+        guard let currentCell = tableView.cellForRow(at: indexPath) as? EventTableViewCell else { return }
+            
         eventSelected = currentCell.eventViewModel
         performSegue(withIdentifier: "toEventDetail", sender: self)
     }

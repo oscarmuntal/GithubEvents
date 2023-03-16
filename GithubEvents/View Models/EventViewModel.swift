@@ -9,23 +9,35 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-struct EventListViewModel {
-    let events: [EventViewModel]
+protocol EventListViewModelContract {
+    var events: [EventViewModelContract] { get }
+    func eventAt(_ index: Int) -> EventViewModelContract
+}
+
+struct EventListViewModel: EventListViewModelContract {
+    let events: [EventViewModelContract]
 }
 
 extension EventListViewModel {
     init(_ events: [Event]) {
         self.events = events.compactMap(EventViewModel.init)
     }
-}
-
-extension EventListViewModel {
-    func eventAt(_ index: Int) -> EventViewModel {
+    
+    func eventAt(_ index: Int) -> EventViewModelContract {
         events[index]
     }
 }
 
-struct EventViewModel {
+protocol EventViewModelContract {
+    var avatarURL: URL? { get }
+    var actorName: String { get }
+    var type: String { get }
+    var repoName: String { get }
+    var repoURL: URL? { get }
+    var date: String { get }
+}
+
+struct EventViewModel: EventViewModelContract {
     let avatarURL: URL?
     let actorName: String
     let type: String
